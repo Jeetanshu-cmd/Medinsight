@@ -7,8 +7,16 @@ const authTabs = document.querySelectorAll(".auth-tab, .inline-switch");
 const authViews = document.querySelectorAll(".auth-view");
 const authFeedback = document.querySelector(".auth-feedback");
 const verifyEmailTarget = document.querySelector(".verify-email-target");
+const signInForm = document.querySelector('[data-auth-view="signin"]');
+const signUpForm = document.querySelector('[data-auth-view="signup"]');
+const verifyForm = document.querySelector('[data-auth-view="verify"]');
 
-console.log('Auth tabs found:', authTabs.length);
+console.log('Page loaded');
+console.log('Supabase loaded:', typeof supabase !== 'undefined');
+console.log('Auth tabs:', authTabs.length);
+console.log('Auth views:', authViews.length);
+console.log('Sign in form:', !!signInForm);
+console.log('Sign up form:', !!signUpForm);
 
 function setAuthView(viewName) {
   console.log('Switching to view:', viewName);
@@ -34,11 +42,11 @@ authTabs.forEach((control) => {
 });
 
 function showFeedback(message, isError = false) {
+  console.log(isError ? 'Error: ' + message : 'Info: ' + message);
   if (authFeedback) {
     authFeedback.textContent = message;
     authFeedback.style.color = isError ? '#ef4444' : '#22c55e';
   }
-  console.log(isError ? 'Error: ' + message : 'Info: ' + message);
 }
 
 const signInForm = document.querySelector('[data-auth-view="signin"]');
@@ -76,29 +84,35 @@ if (signUpForm) {
     const email = signUpForm.querySelector('input[name="email"]').value;
     const password = signUpForm.querySelector('input[name="password"]').value;
 
-    showFeedback("Creating account...");
+    showFeedback("Creating account...", false);
 
-    const { data, error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        data: {
-          full_name: name
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: {
+            full_name: name
+          }
         }
+      });
+
+      console.log('Signup response:', data);
+      console.log('Signup error:', error);
+
+      if (error) {
+        showFeedback(error.message, true);
+      } else if (data.user && !data.session) {
+        showFeedback("Account created! Please check your email to verify, then sign in.", false);
+      } else if (data.session) {
+        showFeedback("Account created! Redirecting to dashboard...", false);
+        window.setTimeout(() => {
+          window.location.href = "./dashboard.html";
+        }, 1000);
       }
-    });
-
-    console.log('Signup result:', data, error);
-
-    if (error) {
-      showFeedback(error.message, true);
-    } else if (data.session) {
-      showFeedback("Account created! Redirecting to dashboard...");
-      window.setTimeout(() => {
-        window.location.href = "./dashboard.html";
-      }, 700);
-    } else if (data.user) {
-      showFeedback("Verification email sent. Check your inbox to confirm your email, then sign in.");
+    } catch (err) {
+      console.error('Signup exception:', err);
+      showFeedback("Error: " + err.message, true);
     }
   });
 }
