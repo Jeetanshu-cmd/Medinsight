@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Request Demo | MedInsight AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="demo-page">
+    <header class="subpage-header">
+      <div class="marketing-container subpage-header-row">
+        <a class="marketing-brand" href="./index.html">
+          <img class="brand-image" src="./assets/logo.png" alt="MedInsight AI" />
+          <span class="marketing-brand-text">Med<span>Insight</span> <small>AI</small></span>
+        </a>
+        <div class="subpage-header-actions">
+          <a class="ghost-button" href="./index.html">Back to Home</a>
+          <a class="ghost-button" href="./login.html">Sign In</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="demo-shell marketing-container">
+      <section class="demo-copy">
+        <span class="eyebrow-pill dark-pill">Request a demo</span>
+        <h1>Show us your workflow and we’ll tailor the walkthrough.</h1>
+        <p>
+          Tell us about your study operations, ingestion volume, validation rules, and compliance expectations. We’ll focus the demo on your real use case.
+        </p>
+        <div class="demo-highlights">
+          <article><strong>Ingestion</strong><span>Upload reports to `POST /api/ingest-report`</span></article>
+          <article><strong>Validation</strong><span>Threshold-driven deviations and severity rules</span></article>
+          <article><strong>Realtime</strong><span>Supabase-powered alert banners for new breaches</span></article>
+        </div>
+      </section>
+
+      <section class="demo-form-card">
+        <form class="demo-form">
+          <h2>Request your session</h2>
+          <p class="form-intro">Fill in the details below and submit the form. Our team will reach out with a tailored walkthrough.</p>
+          <label><span>Full name</span><input type="text" name="name" placeholder="Dr. Sarah Chen" required /></label>
+          <label><span>Work email</span><input type="email" name="email" placeholder="name@company.com" required /></label>
+          <label><span>Company</span><input type="text" name="company" placeholder="NorthPeak Bio" required /></label>
+          <label><span>Role</span><input type="text" name="role" placeholder="Clinical Operations Lead" required /></label>
+          <label><span>What do you want to see?</span><textarea name="message" rows="5" placeholder="Patient record ingestion, protocol rule engine, audit logging, realtime alerts..." required></textarea></label>
+          <button class="glow-button auth-submit" type="submit">Submit Demo Request</button>
+          <p class="auth-feedback demo-feedback" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>

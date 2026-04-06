@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MedInsight</title>
+    <meta
+      name="description"
+      content="AI-powered clinical data platform for document ingestion, anomaly detection, and compliant trial workflows."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="marketing-page">
+    <div class="marketing-shell">
+      <header class="marketing-header">
+        <div class="marketing-container header-row">
+          <a class="marketing-brand" href="./index.html">
+            <img class="brand-image" src="./assets/logo.png" alt="MedInsight AI" />
+            <span class="marketing-brand-text">Med<span>Insight</span> <small>AI</small></span>
+          </a>
+
+          <nav class="marketing-nav" aria-label="Primary navigation">
+            <a href="#product">Product</a>
+            <a href="#features">Features</a>
+            <a href="#compliance">Compliance</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact">Contact</a>
+            <div class="marketing-nav-actions">
+              <a class="ghost-button" href="./login.html">Sign In</a>
+              <a class="glow-button" href="./demo.html">Request Demo</a>
+            </div>
+          </nav>
+
+          <button class="mobile-nav-button" aria-label="Open menu">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero-section-marketing">
+          <div class="hero-grid-marketing marketing-container">
+            <div class="hero-copy-marketing">
+              <span class="eyebrow-pill">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path><path d="M20 3v4"></path><path d="M22 5h-4"></path><path d="M4 17v2"></path><path d="M5 18H3"></path></svg>
+                AI-Powered Clinical Data Platform
+              </span>
+              <h1>
+                Eliminate manual data entry in
+                <span class="gradient-underline">clinical trials</span>
+              </h1>
+              <p>
+                MedInsight AI reads protocols, extracts data from source documents, detects anomalies in real time, and supports compliant study operations without slow manual review cycles.
+              </p>
+
+              <div class="hero-actions-marketing">
+                <a class="glow-button large" href="./demo.html">Request a Demo</a>
+                <a class="outline-accent-button large" href="#product">See How It Works</a>
+              </div>
+
+              <div class="trust-row">
+              <span><i></i> POST `/api/ingest-report`</span>
+              <span><i></i> Realtime deviation alerts</span>
+              <span><i></i> 21 CFR Part 11 audit trail</span>
+              </div>
+            </div>
+
+            <div class="hero-visual-marketing">
+              <div class="hero-visual-glow"></div>
+              <div class="hero-dashboard-card image-frame">
+                <img src="./assets/hero-dashboard.jpg" alt="MedInsight AI dashboard preview" />
+              </div>
+              <div class="floating-metric left">
+                <strong>95.4%</strong>
+                <span>Extraction Accuracy</span>
+              </div>
+              <div class="floating-metric right">
+                <strong>12</strong>
+                <span>Documents Processed</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="logo-band">
+          <div class="marketing-container">
+            <p>Trusted by leading pharmaceutical companies</p>
+            <div class="logo-list">
+              <span>Pfizer</span>
+              <span>Novartis</span>
+              <span>Roche</span>
+              <span>AstraZeneca</span>
+              <span>Merck</span>
+              <span>Sanofi</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="marketing-stats">
+          <div class="marketing-container marketing-stats-grid">
+            <article class="marketing-stat-card">
+              <div class="marketing-stat-icon"></div>
+              <strong>95%</strong>
+              <span>Data Extraction Accuracy</span>
+            </article>
+            <article class="marketing-stat-card">
+              <div class="marketing-stat-icon"></div>
+              <strong>80%</strong>
+              <span>Less Manual Entry</span>
+            </article>
+            <article class="marketing-stat-card">
+              <div class="marketing-stat-icon"></div>
+              <strong>10x</strong>
+              <span>Faster Protocol Review</span>
+            </article>
+            <article class="marketing-stat-card">
+              <div class="marketing-stat-icon"></div>
+              <strong>100%</strong>
+              <span>Audit Trail Coverage</span>
+            </article>
+          </div>
+        </section>
+
+        <section id="features" class="feature-section alt-marketing-surface">
+          <div class="marketing-container">
+            <div class="section-heading-marketing">
+              <span>Core Capabilities</span>
+              <h2>Everything you need to modernize clinical data</h2>
+              <p>From document ingestion to compliance reporting, MedInsight AI supports the full clinical data lifecycle.</p>
+            </div>
+
+            <div class="feature-grid-marketing">
+              <article class="feature-card-marketing"><em>Ingestion</em><h3>Patient Record Ingestion Endpoint</h3><p>`POST /api/ingest-report` receives a lab report or scan, extracts values via Claude, and writes structured fields into `patient_records`.</p></article>
+              <article class="feature-card-marketing"><em>AI Engine</em><h3>Claude Replaces Manual Entry</h3><p>Clinical documents are parsed automatically so coordinators do not retype source values into case report workflows.</p></article>
+              <article class="feature-card-marketing"><em>Validation</em><h3>Protocol Rule Engine</h3><p>After save, extracted values are compared against protocol thresholds and breaches are written into a `deviations` table with severity and timestamps.</p></article>
+              <article class="feature-card-marketing"><em>Compliance</em><h3>Audit Log Middleware</h3><p>Every upload, extraction, edit, flag, and sign-off also creates an `audit_log` row with `user_id`, `record_id`, `timestamp`, and a SHA-256 `data_hash`.</p></article>
+              <article class="feature-card-marketing"><em>Realtime</em><h3>Supabase Realtime Alerts</h3><p>New deviation rows broadcast over WebSocket automatically, so the frontend can surface red alerts instantly without extra backend plumbing.</p></article>
+              <article class="feature-card-marketing"><em>Operations</em><h3>Structured Reviewer Workspace</h3><p>Teams review records, deviations, and approvals in one place with searchable records and a clear operational audit trail.</p></article>
+            </div>
+          </div>
+        </section>
+
+        <section id="product" class="product-preview-section">
+          <div class="marketing-container">
+            <div class="section-heading-marketing">
+              <span>Product Preview</span>
+              <h2>A dashboard built for clinical teams</h2>
+              <p>Intuitive, data-rich, and designed for clinical staff who need confidence instead of complexity.</p>
+            </div>
+
+            <div class="dashboard-preview-shell">
+              <div class="dashboard-preview-screen image-frame">
+                <img src="./assets/hero-dashboard.jpg" alt="MedInsight AI dashboard preview" />
+              </div>
+              <div class="preview-notes">
+                <article><h4>Ingestion Pipeline</h4><p>Uploaded scans become structured patient records automatically.</p></article>
+                <article><h4>Realtime Alerts</h4><p>Deviation inserts can trigger immediate frontend banners.</p></article>
+                <article><h4>Audit-Proof Actions</h4><p>Every write can be hashed and logged for traceability.</p></article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="workflow-section alt-marketing-surface">
+          <div class="marketing-container">
+            <div class="section-heading-marketing">
+              <span>Workflow</span>
+              <h2>From upload to insight in minutes</h2>
+              <p>Four steps to turn unstructured clinical documents into validated, reviewable data.</p>
+            </div>
+
+            <div class="workflow-grid">
+              <article><b>01</b><h3>Upload Report</h3><p>A site submits a lab report or scan to the ingestion endpoint.</p></article>
+              <article><b>02</b><h3>Extract Fields</h3><p>Claude reads the document and fills structured patient fields automatically.</p></article>
+              <article><b>03</b><h3>Run Rules</h3><p>The validation engine compares values against protocol thresholds and writes deviations.</p></article>
+              <article><b>04</b><h3>Broadcast Alerts</h3><p>Supabase Realtime pushes new deviations to reviewers and dashboards immediately.</p></article>
+            </div>
+          </div>
+        </section>
+
+        <section id="compliance" class="security-section">
+          <div class="marketing-container">
+            <div class="section-heading-marketing">
+              <span>Compliance and Security</span>
+              <h2>Enterprise-grade security you can trust</h2>
+              <p>Built for the strict regulatory expectations of clinical research and document-heavy workflows.</p>
+            </div>
+
+            <div class="security-grid">
+              <article><h3>21 CFR Part 11</h3><p>Audit-log middleware captures every write with timestamps and immutable hashes.</p></article>
+              <article><h3>GCP Compliant</h3><p>Review workflows map cleanly to protocol-driven clinical operations.</p></article>
+              <article><h3>HIPAA Ready</h3><p>Patient records and report ingestion flows are designed for protected health data handling.</p></article>
+              <article><h3>SOC 2 Type II</h3><p>Enterprise controls support secure ingestion, storage, and collaboration.</p></article>
+            </div>
+          </div>
+        </section>
+
+        <section id="pricing" class="cta-band">
+          <div class="marketing-container cta-panel">
+            <div>
+              <h2>Ready to accelerate your clinical trials?</h2>
+              <p>Join teams using MedInsight AI to reduce manual entry, improve review speed, and strengthen compliance visibility.</p>
+            </div>
+            <div class="cta-actions">
+              <a class="glow-button large" href="./demo.html">Schedule a Demo</a>
+              <a class="outline-accent-button large" href="./login.html">Sign In</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer id="contact" class="marketing-footer">
+        <div class="marketing-container footer-grid-marketing">
+          <div>
+            <div class="marketing-brand footer-brand-marketing">
+              <img class="brand-image" src="./assets/logo.png" alt="MedInsight AI" />
+              <span class="marketing-brand-text">Med<span>Insight</span> <small>AI</small></span>
+            </div>
+            <p>AI-powered clinical trial data platform. Automate extraction, support compliance, and reduce operational drag.</p>
+          </div>
+          <div>
+            <h4>Product</h4>
+            <a href="#product">Overview</a>
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="./login.html">Sign In</a>
+          </div>
+          <div>
+            <h4>Compliance</h4>
+            <a href="#compliance">21 CFR Part 11</a>
+            <a href="#compliance">GCP Standards</a>
+            <a href="#compliance">HIPAA</a>
+            <a href="#compliance">SOC 2</a>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <a href="#contact">Contact</a>
+            <a href="#">About</a>
+            <a href="#">Careers</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+        </div>
+        <div class="marketing-container footer-bottom-marketing">
+          <span>© 2026 MedInsight AI. All rights reserved.</span>
+          <div>
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+            <a href="#">Security</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

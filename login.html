@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In | MedInsight AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="auth-page">
+    <main class="auth-shell">
+      <section class="auth-panel auth-copy-panel">
+        <a class="marketing-brand" href="./index.html">
+          <img class="brand-image" src="./assets/logo.png" alt="MedInsight AI" />
+          <span class="marketing-brand-text">Med<span>Insight</span> <small>AI</small></span>
+        </a>
+        <span class="eyebrow-pill dark-pill">Clinical access</span>
+        <h1>Secure access for coordinators, reviewers, and study leads.</h1>
+        <p>
+          Sign in to review ingested patient records, investigate protocol deviations, and monitor realtime alerts triggered by the validation engine.
+        </p>
+        <ul class="auth-points">
+          <li>Ingested reports saved to structured patient records</li>
+          <li>Deviation alerts delivered in realtime</li>
+          <li>Audit logs hashed for tamper evidence</li>
+        </ul>
+      </section>
+
+      <section class="auth-panel auth-form-panel">
+        <div class="auth-tabs">
+          <button class="auth-tab active" type="button" data-auth-target="signin">Sign In</button>
+          <button class="auth-tab" type="button" data-auth-target="signup">Create Account</button>
+        </div>
+
+        <form class="auth-card auth-view active" data-auth-view="signin">
+          <h2>Welcome back</h2>
+          <p class="form-intro">Use your work credentials to access the platform.</p>
+          <label>
+            <span>Email address</span>
+            <input type="email" name="email" placeholder="name@company.com" required />
+          </label>
+          <label>
+            <span>Password</span>
+            <input type="password" name="password" placeholder="Enter your password" required />
+          </label>
+          <button class="glow-button auth-submit" type="submit">Sign In</button>
+          <div class="auth-note">No account? <button class="inline-switch" type="button" data-auth-target="signup">Create one</button></div>
+        </form>
+
+        <form class="auth-card auth-view" data-auth-view="signup">
+          <h2>Create your account</h2>
+          <p class="form-intro">Register with your work email to begin verification.</p>
+          <label>
+            <span>Full name</span>
+            <input type="text" name="name" placeholder="Dr. Sarah Chen" required />
+          </label>
+          <label>
+            <span>Work email</span>
+            <input type="email" name="email" placeholder="name@company.com" required />
+          </label>
+          <label>
+            <span>Password</span>
+            <input type="password" name="password" placeholder="Create a password" required />
+          </label>
+          <button class="glow-button auth-submit" type="submit">Send Verification Email</button>
+          <div class="auth-note">Already have an account? <button class="inline-switch" type="button" data-auth-target="signin">Sign in</button></div>
+        </form>
+
+        <form class="auth-card auth-view" data-auth-view="verify">
+          <h2>Verify your email</h2>
+          <p class="form-intro">We sent a verification code to <strong class="verify-email-target">your email</strong>.</p>
+          <label>
+            <span>Verification code</span>
+            <input type="text" name="code" placeholder="Enter 6-digit code" required />
+          </label>
+          <button class="glow-button auth-submit" type="submit">Verify and Continue</button>
+          <div class="auth-note">Wrong email? <button class="inline-switch" type="button" data-auth-target="signup">Back to sign up</button></div>
+        </form>
+
+        <p class="auth-feedback" aria-live="polite"></p>
+      </section>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>

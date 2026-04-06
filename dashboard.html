@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MedInsight Dashboard</title>
+    <meta name="description" content="Clinical trial operations dashboard for documents, alerts, and study activity." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="sidebar-brand">
+          <img class="brand-image dashboard-brand-image" src="./assets/logo.png" alt="MedInsight AI" />
+          <div class="brand-text">Med<span>Insight</span></div>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Primary">
+          <a class="nav-item active" href="#"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"></rect><rect x="14" y="3" width="7" height="5" rx="1"></rect><rect x="14" y="12" width="7" height="9" rx="1"></rect><rect x="3" y="16" width="7" height="5" rx="1"></rect></svg></span><span>Dashboard</span></a>
+          <a class="nav-item" href="#"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"></path><path d="M8.5 2h7"></path><path d="M7 16h10"></path></svg></span><span>Trials</span></a>
+          <a class="nav-item" href="#"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg></span><span>Documents</span></a>
+          <a class="nav-item" href="#"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg></span><span>Validation</span></a>
+          <a class="nav-item" href="#"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path></svg></span><span>Audit Logs</span></a>
+          <a class="nav-item" href="#"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></span><span>Settings</span></a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <a class="nav-item" href="./login.html"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg></span><span>Sign Out</span></a>
+        </div>
+      </aside>
+
+      <div class="main-shell">
+        <header class="topbar">
+          <div class="topbar-left">
+            <button class="icon-button" aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg></button>
+            <label class="search-bar" aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg><input type="search" placeholder="Search documents, trials, subjects..." /></label>
+          </div>
+          <div class="topbar-right">
+            <button class="icon-button notification-button" aria-label="Notifications"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg><span></span></button>
+            <button class="profile-chip"><div class="avatar">SC</div><span>Dr. Chen</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+          </div>
+        </header>
+
+        <main class="content-area">
+          <section class="page-heading">
+            <h1>Good morning, Dr. Chen</h1>
+            <p>Here’s an overview of your clinical trial activity.</p>
+          </section>
+
+          <section class="stats-grid">
+            <article class="stat-card"><div class="stat-top"><div class="stat-icon soft-primary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg></div><span class="metric-up">+12%</span></div><strong>1,247</strong><p>Documents Processed</p></article>
+            <article class="stat-card"><div class="stat-top"><div class="stat-icon soft-warning"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg></div><span class="metric-up">-23%</span></div><strong>8</strong><p>Pending Alerts</p></article>
+            <article class="stat-card"><div class="stat-top"><div class="stat-icon soft-info"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"></path><path d="M8.5 2h7"></path><path d="M7 16h10"></path></svg></div><span class="metric-up">+2</span></div><strong>14</strong><p>Active Trials</p></article>
+            <article class="stat-card"><div class="stat-top"><div class="stat-icon soft-success"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg></div><span class="metric-up">+1.2%</span></div><strong>95.4%</strong><p>Avg. Accuracy</p></article>
+          </section>
+
+          <section class="main-grid">
+            <div class="primary-column">
+              <section class="upload-card card"><div class="upload-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg></div><h2>Upload Documents</h2><p>Drag and drop PDFs, scanned images, or clinical reports.</p><button class="primary-button">Browse Files</button></section>
+              <section class="card table-card">
+                <div class="card-header"><h2>Recent Documents</h2><a href="#">View all</a></div>
+                <div class="table-wrap">
+                  <table>
+                    <thead><tr><th>Document</th><th>Status</th><th>Fields</th><th>Accuracy</th><th>Time</th></tr></thead>
+                    <tbody>
+                      <tr><td><div class="doc-cell"><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg></span><span>Protocol_v3.2.pdf</span></div></td><td><span class="status success">completed</span></td><td>47</td><td>97%</td><td>2 min ago</td></tr>
+                      <tr><td><div class="doc-cell"><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg></span><span>Lab_Report_042.pdf</span></div></td><td><span class="status info">processing</span></td><td>23</td><td>--</td><td>5 min ago</td></tr>
+                      <tr><td><div class="doc-cell"><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg></span><span>AE_Report_019.pdf</span></div></td><td><span class="status success">completed</span></td><td>31</td><td>94%</td><td>12 min ago</td></tr>
+                      <tr><td><div class="doc-cell"><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg></span><span>ICF_Amendment_2.pdf</span></div></td><td><span class="status warning">review</span></td><td>18</td><td>91%</td><td>1 hr ago</td></tr>
+                      <tr><td><div class="doc-cell"><span class="mini-icon"><svg viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg></span><span>CRF_Site_007.pdf</span></div></td><td><span class="status success">completed</span></td><td>52</td><td>96%</td><td>2 hr ago</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+            </div>
+            <div class="secondary-column">
+              <section class="card side-card"><div class="card-header"><h2>Realtime Deviation Alerts</h2><span class="badge danger">4 new</span></div><div class="list-group"><article class="list-item"><span class="alert-icon danger"><svg viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg></span><div><p>`deviations` insert: consent date missing for Subject #1042</p><time>3 min ago via Supabase Realtime</time></div></article><article class="list-item"><span class="alert-icon warning"><svg viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg></span><div><p>Protocol threshold breach for potassium value in Subject #0987</p><time>18 min ago severity: medium</time></div></article><article class="list-item"><span class="alert-icon warning"><svg viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg></span><div><p>Visit schedule deviation written after validation run for Site 007</p><time>1 hr ago severity: medium</time></div></article><article class="list-item"><span class="alert-icon info"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></span><div><p>`audit_log` hash generated after 12 document extraction writes</p><time>2 hr ago data integrity recorded</time></div></article></div></section>
+              <section class="card side-card"><div class="card-header"><h2>Activity Feed</h2></div><div class="list-group simple-feed"><article class="feed-item"><p><strong>Dr. Sarah Chen</strong> approved extraction for Protocol_v3.2.pdf</p><time>5 min ago</time></article><article class="feed-item"><p><strong>System</strong> flagged 3 anomalies in Lab_Report_042.pdf</p><time>8 min ago</time></article><article class="feed-item"><p><strong>James Wilson</strong> uploaded 5 new documents to Trial ONCO-2024</p><time>15 min ago</time></article><article class="feed-item"><p><strong>System</strong> completed audit log export for Q4 2024</p><time>1 hr ago</time></article></div></section>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
