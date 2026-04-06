@@ -15,18 +15,11 @@ Clinical trial operations platform with AI-powered document processing and valid
 1. Go to **Authentication** → **Providers**
 2. Enable **Email** provider (Confirm email: off for testing, or on for production)
 3. Go to **Authentication** → **URL Configuration**
-4. Add your site URL (e.g., `https://yourusername.github.io/medinsight`)
-
-### 3. Deploy to GitHub Pages
-
-1. Push this code to a GitHub repository
-2. Go to **Settings** → **Pages**
-3. Select `main` branch and `/ (root)` folder
-4. Save and your site will be live
+4. Add your Vercel deployment URL: `https://medinsight-ebon.vercel.app/`
 
 ## Supabase Configuration
 
-The Supabase credentials are hardcoded in `script.js` for public deployment. To change them, edit these lines:
+The Supabase credentials are in `script.js`. To update:
 
 ```javascript
 const supabaseUrl = 'YOUR_SUPABASE_URL';

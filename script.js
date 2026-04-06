@@ -10,7 +10,10 @@
   const authFeedback = document.querySelector(".auth-feedback");
   const verifyEmailTarget = document.querySelector(".verify-email-target");
 
+  console.log('Auth tabs found:', authTabs.length);
+
   function setAuthView(viewName) {
+    console.log('Switching to view:', viewName);
     authViews.forEach((view) => {
       view.classList.toggle("active", view.dataset.authView === viewName);
     });
@@ -18,14 +21,6 @@
     document.querySelectorAll(".auth-tab").forEach((tab) => {
       tab.classList.toggle("active", tab.dataset.authTarget === viewName);
     });
-  }
-
-  function showFeedback(message, isError = false) {
-    if (authFeedback) {
-      authFeedback.textContent = message;
-      authFeedback.style.color = isError ? '#ef4444' : '#22c55e';
-    }
-    console.log(isError ? 'Error: ' + message : 'Info: ' + message);
   }
 
   authTabs.forEach((control) => {
@@ -39,6 +34,14 @@
       }
     });
   });
+
+  function showFeedback(message, isError = false) {
+    if (authFeedback) {
+      authFeedback.textContent = message;
+      authFeedback.style.color = isError ? '#ef4444' : '#22c55e';
+    }
+    console.log(isError ? 'Error: ' + message : 'Info: ' + message);
+  }
 
   const signInForm = document.querySelector('[data-auth-view="signin"]');
   const signUpForm = document.querySelector('[data-auth-view="signup"]');
