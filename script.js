@@ -1,198 +1,195 @@
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-  const supabaseUrl = 'https://smprmketrxdhiegmmiec.supabase.co';
-  const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNtcHJta2V0cnhkaGllZ21taWVjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU0NDY2MDksImV4cCI6MjA5MTAyMjYwOX0.emA8CYOc33SjievM4WPGliwHgGAHDekBtbzWzZxlEbs';
+const supabaseUrl = 'https://smprmketrxdhiegmmiec.supabase.co';
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNtcHJta2V0cnhkaGllZ21taWVjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU0NDY2MDksImV4cCI6MjA5MTAyMjYwOX0.emA8CYOc33SjievM4WPGliwHgGAHDekBtbzWzZxlEbs';
 
-  const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
 
-  const authTabs = document.querySelectorAll(".auth-tab, .inline-switch");
-  const authViews = document.querySelectorAll(".auth-view");
-  const authFeedback = document.querySelector(".auth-feedback");
-  const verifyEmailTarget = document.querySelector(".verify-email-target");
+const authTabs = document.querySelectorAll(".auth-tab, .inline-switch");
+const authViews = document.querySelectorAll(".auth-view");
+const authFeedback = document.querySelector(".auth-feedback");
+const verifyEmailTarget = document.querySelector(".verify-email-target");
 
-  console.log('Auth tabs found:', authTabs.length);
+console.log('Auth tabs found:', authTabs.length);
 
-  function setAuthView(viewName) {
-    console.log('Switching to view:', viewName);
-    authViews.forEach((view) => {
-      view.classList.toggle("active", view.dataset.authView === viewName);
-    });
-
-    document.querySelectorAll(".auth-tab").forEach((tab) => {
-      tab.classList.toggle("active", tab.dataset.authTarget === viewName);
-    });
-  }
-
-  authTabs.forEach((control) => {
-    control.addEventListener("click", () => {
-      const target = control.dataset.authTarget;
-      if (target) {
-        setAuthView(target);
-        if (authFeedback) {
-          authFeedback.textContent = "";
-        }
-      }
-    });
+function setAuthView(viewName) {
+  console.log('Switching to view:', viewName);
+  authViews.forEach((view) => {
+    view.classList.toggle("active", view.dataset.authView === viewName);
   });
 
-  function showFeedback(message, isError = false) {
-    if (authFeedback) {
-      authFeedback.textContent = message;
-      authFeedback.style.color = isError ? '#ef4444' : '#22c55e';
+  document.querySelectorAll(".auth-tab").forEach((tab) => {
+    tab.classList.toggle("active", tab.dataset.authTarget === viewName);
+  });
+}
+
+authTabs.forEach((control) => {
+  control.addEventListener("click", () => {
+    const target = control.dataset.authTarget;
+    if (target) {
+      setAuthView(target);
+      if (authFeedback) {
+        authFeedback.textContent = "";
+      }
     }
-    console.log(isError ? 'Error: ' + message : 'Info: ' + message);
+  });
+});
+
+function showFeedback(message, isError = false) {
+  if (authFeedback) {
+    authFeedback.textContent = message;
+    authFeedback.style.color = isError ? '#ef4444' : '#22c55e';
   }
+  console.log(isError ? 'Error: ' + message : 'Info: ' + message);
+}
 
-  const signInForm = document.querySelector('[data-auth-view="signin"]');
-  const signUpForm = document.querySelector('[data-auth-view="signup"]');
-  const verifyForm = document.querySelector('[data-auth-view="verify"]');
+const signInForm = document.querySelector('[data-auth-view="signin"]');
+const signUpForm = document.querySelector('[data-auth-view="signup"]');
+const verifyForm = document.querySelector('[data-auth-view="verify"]');
 
-  if (signInForm) {
-    signInForm.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      const email = signInForm.querySelector('input[name="email"]').value;
-      const password = signInForm.querySelector('input[name="password"]').value;
+if (signInForm) {
+  signInForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const email = signInForm.querySelector('input[name="email"]').value;
+    const password = signInForm.querySelector('input[name="password"]').value;
 
-      showFeedback("Signing in...");
+    showFeedback("Signing in...");
 
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password
-      });
-
-      if (error) {
-        showFeedback(error.message, true);
-      } else {
-        showFeedback("Sign-in successful. Redirecting to dashboard...");
-        window.setTimeout(() => {
-          window.location.href = "./dashboard.html";
-        }, 700);
-      }
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password
     });
-  }
 
-  if (signUpForm) {
-    signUpForm.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      const name = signUpForm.querySelector('input[name="name"]').value;
-      const email = signUpForm.querySelector('input[name="email"]').value;
-      const password = signUpForm.querySelector('input[name="password"]').value;
+    if (error) {
+      showFeedback(error.message, true);
+    } else {
+      showFeedback("Sign-in successful. Redirecting to dashboard...");
+      window.setTimeout(() => {
+        window.location.href = "./dashboard.html";
+      }, 700);
+    }
+  });
+}
 
-      showFeedback("Creating account...");
+if (signUpForm) {
+  signUpForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const name = signUpForm.querySelector('input[name="name"]').value;
+    const email = signUpForm.querySelector('input[name="email"]').value;
+    const password = signUpForm.querySelector('input[name="password"]').value;
 
-      const { data, error } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          data: {
-            full_name: name
-          }
+    showFeedback("Creating account...");
+
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: {
+          full_name: name
         }
-      });
-
-      console.log('Signup result:', data, error);
-
-      if (error) {
-        showFeedback(error.message, true);
-      } else if (data.session) {
-        showFeedback("Account created! Redirecting to dashboard...");
-        window.setTimeout(() => {
-          window.location.href = "./dashboard.html";
-        }, 700);
-      } else if (data.user) {
-        showFeedback("Verification email sent. Check your inbox to confirm your email, then sign in.");
       }
     });
-  }
 
-  if (verifyForm) {
-    verifyForm.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      const email = verifyForm.querySelector('input[name="email"]')?.value || verifyEmailTarget?.textContent;
-      const code = verifyForm.querySelector('input[name="code"]').value;
+    console.log('Signup result:', data, error);
 
-      showFeedback("Verifying...");
+    if (error) {
+      showFeedback(error.message, true);
+    } else if (data.session) {
+      showFeedback("Account created! Redirecting to dashboard...");
+      window.setTimeout(() => {
+        window.location.href = "./dashboard.html";
+      }, 700);
+    } else if (data.user) {
+      showFeedback("Verification email sent. Check your inbox to confirm your email, then sign in.");
+    }
+  });
+}
 
-      const { data, error } = await supabase.auth.verifyOtp({
+if (verifyForm) {
+  verifyForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const email = verifyForm.querySelector('input[name="email"]')?.value || verifyEmailTarget?.textContent;
+    const code = verifyForm.querySelector('input[name="code"]').value;
+
+    showFeedback("Verifying...");
+
+    const { data, error } = await supabase.auth.verifyOtp({
+      email,
+      code,
+      type: 'email'
+    });
+
+    if (error) {
+      showFeedback(error.message, true);
+    } else {
+      showFeedback("Email verified. Redirecting to dashboard...");
+      window.setTimeout(() => {
+        window.location.href = "./dashboard.html";
+      }, 700);
+    }
+  });
+}
+
+const demoForm = document.querySelector(".demo-form");
+const demoFeedback = document.querySelector(".demo-feedback");
+
+if (demoForm) {
+  demoForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const email = demoForm.querySelector('input[name="email"]').value;
+    const company = demoForm.querySelector('input[name="company"]').value || '';
+    const name = demoForm.querySelector('input[name="name"]').value;
+    const role = demoForm.querySelector('input[name="role"]').value || '';
+    const message = demoForm.querySelector('textarea[name="message"]').value || '';
+
+    if (demoFeedback) {
+      demoFeedback.textContent = "Submitting your request...";
+      demoFeedback.style.color = '';
+    }
+
+    const { data, error } = await supabase
+      .from('demo_requests')
+      .insert({
         email,
-        code,
-        type: 'email'
+        company,
+        name,
+        role,
+        message
       });
 
-      if (error) {
-        showFeedback(error.message, true);
-      } else {
-        showFeedback("Email verified. Redirecting to dashboard...");
-        window.setTimeout(() => {
-          window.location.href = "./dashboard.html";
-        }, 700);
-      }
-    });
-  }
-
-  const demoForm = document.querySelector(".demo-form");
-  const demoFeedback = document.querySelector(".demo-feedback");
-
-  if (demoForm) {
-    demoForm.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      const email = demoForm.querySelector('input[name="email"]').value;
-      const company = demoForm.querySelector('input[name="company"]').value || '';
-      const name = demoForm.querySelector('input[name="name"]').value;
-      const role = demoForm.querySelector('input[name="role"]').value || '';
-      const message = demoForm.querySelector('textarea[name="message"]').value || '';
-
+    if (error) {
       if (demoFeedback) {
-        demoFeedback.textContent = "Submitting your request...";
-        demoFeedback.style.color = '';
+        demoFeedback.textContent = "Error: " + error.message;
+        demoFeedback.style.color = '#ef4444';
       }
-
-      const { data, error } = await supabase
-        .from('demo_requests')
-        .insert({
-          email,
-          company,
-          name,
-          role,
-          message
-        });
-
-      if (error) {
-        if (demoFeedback) {
-          demoFeedback.textContent = "Error: " + error.message;
-          demoFeedback.style.color = '#ef4444';
-        }
-      } else {
-        if (demoFeedback) {
-          demoFeedback.textContent = "Demo request submitted. Our team will contact you shortly.";
-          demoFeedback.style.color = '#22c55e';
-        }
-        demoForm.reset();
+    } else {
+      if (demoFeedback) {
+        demoFeedback.textContent = "Demo request submitted. Our team will contact you shortly.";
+        demoFeedback.style.color = '#22c55e';
       }
-    });
-  }
-
-  async function checkAuth() {
-    const { data: { session } } = await supabase.auth.getSession();
-    const path = window.location.pathname;
-    
-    if (!session && path.includes('dashboard.html')) {
-      window.location.href = './login.html';
+      demoForm.reset();
     }
-    
-    if (session && path.includes('login.html')) {
-      window.location.href = './dashboard.html';
-    }
-  }
+  });
+}
 
-  const signOutLink = document.querySelector('.sidebar-footer .nav-item');
-  if (signOutLink) {
-    signOutLink.addEventListener("click", async (event) => {
-      event.preventDefault();
-      await supabase.auth.signOut();
-      window.location.href = './login.html';
-    });
+async function checkAuth() {
+  const { data: { session } } = await supabase.auth.getSession();
+  const path = window.location.pathname;
+  
+  if (!session && path.includes('dashboard.html')) {
+    window.location.href = './login.html';
   }
+  
+  if (session && path.includes('login.html')) {
+    window.location.href = './dashboard.html';
+  }
+}
 
-  checkAuth();
-</script>
+const signOutLink = document.querySelector('.sidebar-footer .nav-item');
+if (signOutLink) {
+  signOutLink.addEventListener("click", async (event) => {
+    event.preventDefault();
+    await supabase.auth.signOut();
+    window.location.href = './login.html';
+  });
+}
+
+checkAuth();
