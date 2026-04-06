@@ -49,10 +49,6 @@ function showFeedback(message, isError = false) {
   }
 }
 
-const signInForm = document.querySelector('[data-auth-view="signin"]');
-const signUpForm = document.querySelector('[data-auth-view="signup"]');
-const verifyForm = document.querySelector('[data-auth-view="verify"]');
-
 if (signInForm) {
   signInForm.addEventListener("submit", async (event) => {
     event.preventDefault();
